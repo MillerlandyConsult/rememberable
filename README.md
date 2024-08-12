@@ -1,4 +1,4 @@
-Rememberable, Laravel 5 query cache
+Rememberable, Laravel query cache
 ===================================
 
 [![Total Downloads](https://poser.pugx.org/watson/rememberable/downloads.svg)](https://packagist.org/packages/watson/rememberable)
