@@ -1,6 +1,6 @@
 <?php
 
-namespace Watson\Rememberable\Query;
+namespace Anfi\Rememberable\Query;
 
 use DateTime;
 
