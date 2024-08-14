@@ -1,5 +1,5 @@
 {
-    "name": "watson/rememberable",
+    "name": "anfi/rememberable",
     "description": "Query caching for Laravel",
     "keywords": [
         "laravel",
@@ -12,7 +12,11 @@
         {
             "name": "Dwight Watson",
             "email": "dwight@studiousapp.com"
-        }
+        },
+        {
+            "name": "Juan Luis Rodriguez",
+            "email": "jrodriguez@mylland.com"
+        }        
     ],
     "require": {
         "php": "^8.0",
@@ -21,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Watson\\Rememberable\\": "src/"
+            "Anfi\\Rememberable\\": "src/"
         }
     }
 }
