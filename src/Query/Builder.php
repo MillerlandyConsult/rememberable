@@ -2,9 +2,10 @@
 
 namespace Anfi\Rememberable\Query;
 
+use \Illuminate\Database\Query\Builder as QueryBuilder;
 use DateTime;
 
-class Builder extends \Illuminate\Database\Query\Builder
+class Builder extends QueryBuilder
 {
     /**
      * The key that should be used when caching the query.
@@ -138,7 +139,10 @@ class Builder extends \Illuminate\Database\Query\Builder
      */
     public function remember($seconds, $key = null)
     {
-        list($this->cacheSeconds, $this->cacheKey) = [$seconds, $key];
+        // list($this->cacheSeconds, $this->cacheKey) = [$seconds, $key];
+
+        $this->cacheSeconds = $seconds;
+        $this->cacheKey = $this->cacheKey ?? $key;
 
         return $this;
     }
@@ -185,6 +189,19 @@ class Builder extends \Illuminate\Database\Query\Builder
     public function prefix($prefix)
     {
         $this->cachePrefix = $prefix;
+
+        return $this;
+    }
+
+    /**
+     * Set the cache key.
+     *
+     * @param  string  $key
+     * @return $this
+     */
+    public function cacheKey($key)
+    {
+        $this->cacheKey = $key;
 
         return $this;
     }
@@ -245,6 +262,18 @@ class Builder extends \Illuminate\Database\Query\Builder
      */
     public function getCacheKey($appends = null)
     {
+        if ($this->cacheKey && $this->cachePrefix !== 'rememberable') {
+            return "{$this->cachePrefix}:{$this->cacheKey}";
+        }
+        
+        if ($this->cacheKey) {
+            return $this->cacheKey;
+        }
+
+        if ($this->cachePrefix !== 'rememberable') {
+            return $this->cachePrefix;
+        }
+
         return $this->cachePrefix.':'.($this->cacheKey ?: $this->generateCacheKey($appends));
     }
 

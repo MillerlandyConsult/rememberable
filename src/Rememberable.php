@@ -37,21 +37,23 @@ trait Rememberable
 
         $builder = new Builder($conn, $grammar, $conn->getPostProcessor());
 
-        if (isset($this->rememberFor)) {
-            $builder->remember($this->rememberFor);
-        }
+        // UNUSED PROPERTIES FOR OUR OWN USAGE OF THE PACKAGE
+        
+        // if (isset($this->rememberFor)) {
+        //     $builder->remember($this->rememberFor);
+        // }
 
-        if (isset($this->rememberCacheTag)) {
-            $builder->cacheTags($this->rememberCacheTag);
-        }
+        // if (isset($this->rememberCacheTag)) {
+        //     $builder->cacheTags($this->rememberCacheTag);
+        // }
 
-        if (isset($this->rememberCachePrefix)) {
-            $builder->prefix($this->rememberCachePrefix);
-        }
+        // if (isset($this->rememberCachePrefix)) {
+        //     $builder->prefix($this->rememberCachePrefix);
+        // }
 
-        if (isset($this->rememberCacheDriver)) {
-            $builder->cacheDriver($this->rememberCacheDriver);
-        }
+        // if (isset($this->rememberCacheDriver)) {
+        //     $builder->cacheDriver($this->rememberCacheDriver);
+        // }
 
         return $builder;
     }
