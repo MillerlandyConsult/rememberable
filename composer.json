@@ -1,6 +1,6 @@
 {
-    "name": "anfi/rememberable",
-    "description": "Query caching for Laravel",
+    "name": "mconsult/rememberable",
+    "description": "Query caching for Laravel. This package is forked from dwightwatson/rememberable. All credit to him",
     "keywords": [
         "laravel",
         "eloquent",
